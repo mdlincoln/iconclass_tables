@@ -1,0 +1,10 @@
+PREFIX purl: <http://purl.org/dc/elements/1.1/>
+PREFIX icc: <http://iconclass.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?code ?subject
+WHERE {
+  ?notation skos:notation ?code .
+  ?notation purl:subject ?subject .
+  FILTER (langMatches(lang(?subject), "en"))
+}
